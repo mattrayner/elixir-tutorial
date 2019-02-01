@@ -1,6 +1,6 @@
 defmodule Cards do
   @moduledoc """
-  Documentation for Cards.
+  Provides functionality to create and manipulate a deck of cards.
   """
 
   @doc """
@@ -22,6 +22,9 @@ defmodule Cards do
       "Two of Diamonds", "Three of Diamonds", "Four of Diamonds", "Five of Diamonds",
       "Six of Diamonds", "Seven of Diamonds", "Eight of Diamonds", "Nine of Diamonds",
       "Ten of Diamonds", "Jack of Diamonds", "Queen of Diamonds", "King of Diamonds"]
+
+      iex> Enum.count(Cards.create_deck())
+      52
 
   """
   def create_deck do
@@ -114,7 +117,7 @@ defmodule Cards do
     case File.read(filename) do
       {:ok, binary} -> :erlang.binary_to_term(binary)
       {:error, :enoent} -> "That file does not exist"
-      {:eror, reason} -> "There was an error reading #{filename} (code: #{reason})"
+      {:eror, reason} -> "There was an error (#{reason}) when reading: #{filename}"
     end
   end
 
